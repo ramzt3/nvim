@@ -41,18 +41,18 @@ Clone kickstart.nvim:
 
 ```sh
 # on Linux and Mac
-git clone https://github.com/ramzt3/nvim-ramzt3.git "${XDG_CONFIG_HOME:-$HOME/.config}"/nvim 
+git clone https://github.com/ramzt3/nvim "${XDG_CONFIG_HOME:-$HOME/.config}"/nvim 
 ```
 
 
 ```
 # on Windows (cmd)
-git clone https://github.com/ramzt3/nvim-ramzt3.git %userprofile%\AppData\Local\nvim\ 
+git clone https://github.com/ramzt3/nvim %userprofile%\AppData\Local\nvim\ 
 ```
 
 ```
 # on Windows (powershell)
-git clone https://github.com/ramzt3/nvim-ramzt3.git $env:USERPROFILE\AppData\Local\nvim\ 
+git clone https://github.com/ramzt3/nvim $env:USERPROFILE\AppData\Local\nvim\ 
 ```
 
 
