@@ -9,6 +9,13 @@ vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
 
 -- quit nvim
 vim.keymap.set("n", "<leader>qq", vim.cmd.qa)
+
+-- set vertical then center
+vim.keymap.set("n", "<C-d>", "<C-d>zz")
+vim.keymap.set("n", "<C-u>", "<C-u>zz")
+vim.keymap.set("n", "n", "nzzzv")
+vim.keymap.set("n", "N", "Nzzzv")
+
 -- [[ Basic Keymaps ]]
 
 -- Keymaps for better default experience
