@@ -22,7 +22,7 @@ Kickstart.nvim is a template for your own configuration.
 
   And then you can explore or search through `:help lua-guide`
   - https://neovim.io/doc/user/lua-guide.html
-
+-- TODO
 
 Kickstart Guide:
 
@@ -499,8 +499,41 @@ mason_lspconfig.setup_handlers {
 -- See `:help cmp`
 local cmp = require 'cmp'
 local luasnip = require 'luasnip'
+local types = require 'luasnip.util.types'
+
 require('luasnip.loaders.from_vscode').lazy_load()
-luasnip.config.setup {}
+luasnip.config.setup {
+  history = true,
+  updateevents = "TextChanged,TextChangedI",
+  enable_autosnippets = true,
+
+  ext_opts = {
+    [types.choiceNode] = {
+      active = {
+        virt_text = {{ "<-", "Error" }},
+      },
+    },
+  },
+}
+
+local ls = require 'luasnip'
+
+ls.snippets = {
+  all = {
+    -- ls.parser.parse_snippet("html5", "<!DOCTYPE html>\n <html lang=\"en\">\n <head>\n \t<meta charset=\"utf-8\">\n \t<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n \t<title>titleReplace</title>\n \t<link rel=\"stylesheet\" href=\"style.css\">\n </head>\n\n<body>\n\n</body>\n</html>"),
+
+  },
+
+  lua = {
+    ls.parser.parse_snippet("lf", "local $1 = function($2)\n  $0end"),
+    ls.parser.parse_snippet("htmlo", "html\nhtml"),
+  },
+  -- html = {
+  --   ls.parser.parse_snippet("html5", "<!DOCTYPE html>\n <html lang=\"en\">\n <head>\n \t<meta charset=\"utf-8\">\n \t<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n \t<title>titleReplace</title>\n \t<link rel=\"stylesheet\" href=\"style.css\">\n </head>\n\n<body>\n\n</body>\n</html>"),
+  -- }
+
+}
+
 
 cmp.setup {
   snippet = {

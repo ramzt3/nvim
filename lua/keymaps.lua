@@ -79,3 +79,23 @@ vim.keymap.set('n', '<C-n>', '<Cmd>Neotree toggle<CR>')
 -- -- Other:
 -- -- :BarbarEnable - enables barbar (enabled by default)
 -- -- :BarbarDisable - very bad command, should never be used
+--
+
+-- todo comment
+
+vim.keymap.set("n", "]t", function()
+  require("todo-comments").jump_next()
+end, { desc = "Next todo comment" })
+
+vim.keymap.set("n", "[t", function()
+  require("todo-comments").jump_prev()
+end, { desc = "Previous todo comment" })
+
+-- You can also specify a list of valid jump keywords
+
+vim.keymap.set("n", "]t", function()
+  require("todo-comments").jump_next({keywords = { "ERROR", "WARNING" }})
+end, { desc = "Next error/warning todo comment" })
+
+vim.keymap.set('n', '<leader>tl', vim.cmd.TodoLocList, { desc = 'Open Todo in current project' })
+vim.keymap.set('n', '<leader>tq', vim.cmd.TodoQuickFix, { desc = 'QuickFix Todo in current project' })
